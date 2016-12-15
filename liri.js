@@ -131,20 +131,19 @@ function spotify(){
 };
 
 function sayWhat(){
-
+// this is requiring the fs module
     var fs = require('fs');
-
+// if the do-what-it-says action is called 
     if(action == "do-what-it-says"){
-
-
+// this is reading the random text file with a function 
     fs.readFile("random.txt","utf8", function(err, data){
-
+// setting the array to a variable then spliting the array
         var dataArray = data.split(", ");
-
+// logging the arry to make sure the information is there 
         console.log(dataArray);
-
+// creating a new variable 
         var randSong = dataArray[Math.floor(Math.random()*dataArray.length)];
-
+// calling the spotify function and passing the variable into it 
         spotify(randSong);
         
     });
